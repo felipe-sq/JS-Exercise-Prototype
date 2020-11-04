@@ -84,8 +84,8 @@ function Car(model, milesPerGallon) {
   this.odometer = 0;
 };
 Car.prototype.fill = function (gallons) {
-  this.tank = gallons;
-  /* Code for this .fill function is not yet passing the test */
+  this.tank + gallons;
+  return this.tank;
 };
 Car.prototype.drive = function (distance) {
   this.distance = true;
@@ -100,10 +100,11 @@ Car.prototype.drive = function (distance) {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
+
 function Baby(attrs) {
   Person.call(this, attrs);
   this.favoriteToy = attrs.favoriteToy;
-}
+};
 
 Baby.prototype = Object.create( Person.prototype );
 
@@ -115,10 +116,14 @@ Baby.prototype.play = function (){
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. Window/Global Object Binding: 
-  2. Implicit Binding: 
-  3. New Binding:
-  4. Explicit Binding: 
+  1. Window/Global Object Binding: this principle is about how the "this" keyword will refer to anything in the (browser) window or global console (terminal) depending on where it's used, unless it is given a more specific scope. So in a browser window, typing console.log(this) will refer to anything related to the browser window (as it pertains to javascript).
+
+  2. Implicit Binding: this is used with dot notation, meaning that when we use a dot, anything preceding the dot is what is referred to when calling "this."
+
+  3. New Binding: new binding is used with new constructor functions, and using "this" on construcor functions means that we are referring to the object created by the function in that instance. 
+  
+  4. Explicit Binding: this refers more so to .call and .apply, where instead of using "this" we explicitly define "this" with the specific attribute we want to use. This is useful if we want to override the default "this" attribute when using .call or .apply. 
+
 */
 
 
