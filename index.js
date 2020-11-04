@@ -43,7 +43,7 @@ function Person(name, age) {
   this.name = name;
   this.age = age;
   this.stomach = [];
-}
+};
 Person.prototype.eat = function(someFood){
   this.someFood = true;
   if (this.stomach.length <= 10){
@@ -53,13 +53,13 @@ Person.prototype.eat = function(someFood){
     this.stomach.length = 10;
   }
   //Needs to be able to eat up to 10 foods
-} 
+};
 Person.prototype.poop = function(){
   this.stomach = [];
-}
+};
 Person.prototype.toString = function(){
   return `${this.name}, ${this.age}`
-}
+};
 
 
 
@@ -104,21 +104,21 @@ function Baby(attrs) {
   Person.call(this, attrs);
   this.favoriteToy = attrs.favoriteToy;
 }
-Baby.prototype = Object.create (Person.prototype);
 
-Baby.prototype.play = function (toy){
-  this.toy = toy;
-  return `Playing with ${this.toy}`;
+Baby.prototype = Object.create( Person.prototype );
+
+Baby.prototype.play = function (){
+  return `Playing with ${this.favoriteToy}`;
 }
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window/Global Object Binding: 
+  2. Implicit Binding: 
+  3. New Binding:
+  4. Explicit Binding: 
 */
 
 
