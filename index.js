@@ -51,7 +51,6 @@ Person.prototype.eat = function(someFood){
   else {
     this.stomach.length = 10;
   }
-  //Needs to be able to eat up to 10 foods********
 } 
 Person.prototype.poop = function(){
   this.stomach = [];
