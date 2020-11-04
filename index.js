@@ -45,12 +45,14 @@ function Person(name, age) {
   this.stomach = [];
 }
 Person.prototype.eat = function(someFood){
+  this.someFood = true;
   if (this.stomach.length <= 10){
     this.stomach.push(someFood);
   }
   else {
     this.stomach.length = 10;
   }
+  //Needs to be able to eat up to 10 foods
 } 
 Person.prototype.poop = function(){
   this.stomach = [];
@@ -75,9 +77,21 @@ Person.prototype.toString = function(){
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
-}
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
+};
+Car.prototype.fill = function (gallons) {
+  this.tank = gallons;
+  /* Code for this .fill function is not yet passing the test */
+};
+Car.prototype.drive = function (distance) {
+  this.distance = true;
+  this.odometer = distance;
+};
+/* Working on STRETCH goals for Car. Not yet complete */
 
 /*
   TASK 3
