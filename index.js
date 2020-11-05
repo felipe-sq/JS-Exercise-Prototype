@@ -39,9 +39,29 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
+};
+Person.prototype.eat = function(someFood){
+  this.someFood = true;
+  if (this.stomach.length <= 10){
+    this.stomach.push(someFood);
+  };
+  else {
+    this.stomach.length = 10;
+  };
+  //Needs to be able to eat up to 10 foods
+};
+Person.prototype.poop = function(){
+  this.stomach = [];
+};
+Person.prototype.toString = function(){
+  return `${this.name}, ${this.age}`
+};
 
-}
+
 
 /*
   TASK 2
@@ -57,9 +77,21 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
-}
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
+  this.tank = 0;
+  this.odometer = 0;
+};
+Car.prototype.fill = function (gallons) {
+  this.tank = this.tank + gallons;
+  return this.tank;
+};
+Car.prototype.drive = function (distance) {
+  this.distance = true;
+  this.odometer = distance;
+};
+/* Working on STRETCH goals for Car. Not yet complete */
 
 /*
   TASK 3
@@ -68,18 +100,30 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
 
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age);
+  this.favoriteToy = favoriteToy;
+};
+
+Baby.prototype = Object.create( Person.prototype );
+
+Baby.prototype.play = function (){
+  return `Playing with ${this.favoriteToy}`;
 }
 
 /* 
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window/Global Object Binding: this principle is about how the "this" keyword will refer to anything in the (browser) window or global console (terminal) depending on where it's used, unless it is given a more specific scope. So in a browser window, typing console.log(this) will refer to anything related to the browser window (as it pertains to javascript).
+
+  2. Implicit Binding: this is used with dot notation, meaning that when we use a dot, anything preceding the dot is what is referred to when calling "this."
+
+  3. New Binding: new binding is used with new constructor functions, and using "this" on construcor functions means that we are referring to the object created by the function in that instance. 
+  
+  4. Explicit Binding: this refers more so to .call and .apply, where instead of using "this" we explicitly define "this" with the specific attribute we want to use. This is useful if we want to override the default "this" attribute when using .call or .apply. 
+
 */
 
 
