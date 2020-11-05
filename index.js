@@ -48,10 +48,10 @@ Person.prototype.eat = function(someFood){
   this.someFood = true;
   if (this.stomach.length <= 10){
     this.stomach.push(someFood);
-  }
+  };
   else {
     this.stomach.length = 10;
-  }
+  };
   //Needs to be able to eat up to 10 foods
 };
 Person.prototype.poop = function(){
@@ -101,8 +101,8 @@ Car.prototype.drive = function (distance) {
         + Should return a string "Playing with x", x being the favorite toy.
 */
 
-function Baby(favoriteToy) {
-  Person.call(this, favoriteToy);
+function Baby(name, age, favoriteToy) {
+  Person.call(this, name, age);
   this.favoriteToy = favoriteToy;
 };
 
